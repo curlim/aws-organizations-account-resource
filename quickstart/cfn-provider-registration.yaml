@@ -3,10 +3,10 @@ Description: Registers the latest version of the ProServe::Organizations::Accoun
 Parameters:
   SourceBucketName:
     Type: String
-    Default: aws-enterprise-jumpstart
+    Default: curlim
   SourceBucketPrefix:
     Type: String
-    Default: aws-organizations-account-resource/proserve-organizations-account-
+    Default: release/aws-organizations-account-resource
   Version:
     Type: String
     Default: v2.0.1
@@ -89,7 +89,7 @@ Resources:
     Type: AWS::CloudFormation::ResourceVersion
     Properties:
       ExecutionRoleArn: !GetAtt CfnResourceProviderExecutionRole.Arn
-      SchemaHandlerPackage: !Sub s3://${SourceBucketName}/${SourceBucketPrefix}${Version}.zip
+      SchemaHandlerPackage: !Sub s3://${SourceBucketName}/${SourceBucketPrefix}/${Version}.zip
       TypeName: ProServe::Organizations::Account
       LoggingConfig:
           LogGroupName: !Ref CfnResourceLogGroup
