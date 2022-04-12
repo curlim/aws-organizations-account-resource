@@ -1,0 +1,2 @@
+cloudformation-cli-java-plugin==2.0.12
+boto3==1.21.38
