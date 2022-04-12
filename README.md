@@ -77,7 +77,7 @@ Before you can update the alternate contact information for an AWS account that 
 You can use the following link to deploy the CloudFormation resource provider directly into your AWS account. Ensure you are logged into the AWS Console before following it.
 After following the link, ensure you picked the desired **Region** on the top right within the AWS Console.
 
-[Quickstart CloudFormation Link](https://console.aws.amazon.com/cloudformation/home?region=eu-west-1#/stacks/new?templateURL=https:%2F%2Fs3.amazonaws.com%2Faws-enterprise-jumpstart%2Faws-organizations-account-resource%2Fcfn-provider-registration.yaml)
+[Quickstart CloudFormation Link](https://console.aws.amazon.com/cloudformation/home?region=eu-west-1#/stacks/new?templateURL=https:%2F%2Fs3.amazonaws.com%2Fcurlim%2Frelease%2Faws-organizations-account-resource%2Fcfn-provider-registration.yaml)
 
 ## Cross-Account Configuration
 
@@ -106,9 +106,6 @@ The RPDK will automatically generate the correct resource model from the schema 
 
 The code uses [Lombok](https://projectlombok.org/), and [you may have to install IDE integrations](https://projectlombok.org/setup/overview) to enable auto-complete for Lombok-annotated classes.
 
-## Security
-
-See [CONTRIBUTING](CONTRIBUTING.md#security-issue-notifications) for more information.
 
 ## License
 
