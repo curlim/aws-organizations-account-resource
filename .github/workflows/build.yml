@@ -4,6 +4,9 @@ on: [push]
     # tags:
     # - "*"
     # branches: main
+permissions:
+  id-token: write
+  contents: read
 jobs:
   build-deploy:
     runs-on: ubuntu-latest
@@ -26,10 +29,13 @@ jobs:
     - run: echo "Building with Java version - $(java -version)"
     - run: mvn package
     - run: cfn submit --dry-run
+    - name: Configure AWS Credentials
+      uses: aws-actions/configure-aws-credentials@v1
+      with:
+        role-to-assume: ${{ secrets.AWS_ROLE_TO_ASSUME }}
+        aws-region: eu-central-1
     - name: upload assets to s3
       env:
-        AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-        AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
         AWS_DEFAULT_REGION: ${{ secrets.AWS_DEFAULT_REGION }}
         S3_BUCKET_NAME: ${{ secrets.S3_BUCKET_NAME }}
       run: python deployment/upload_s3.py
